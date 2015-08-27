@@ -14,6 +14,8 @@ import com.hujw.GooglePlay.Activity.R;
 import com.hujw.GooglePlay.CustomView.LoadPage;
 import com.hujw.GooglePlay.Utils.ViewUtils;
 
+import java.util.List;
+
 /**
  * Created by Admin on 2015/8/25.
  */
@@ -67,6 +69,18 @@ public abstract class BaseFragment extends Fragment {
     public void show() {
         if(loadFrameLayout!=null){
             loadFrameLayout.show();
+        }
+    }
+    public LoadPage.LoadResult checkedData(List datas){
+        if(datas==null){
+            return LoadPage.LoadResult.Error;
+        }else {
+            if(datas.isEmpty()){
+                return LoadPage.LoadResult.Empty;
+
+            }else{
+                return LoadPage.LoadResult.Success;
+            }
         }
     }
 }

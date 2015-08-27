@@ -1,6 +1,8 @@
 package com.hujw.GooglePlay.Utils;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.View;
 
 import com.hujw.GooglePlay.Application.BaseApplication;
 
@@ -21,5 +23,13 @@ public class UiUtils {
         {
             BaseApplication.getHandler().post(runnable);
         }
+    }
+
+    public static View inflater(int id) {
+        return View.inflate(getContext(),id,null);
+    }
+
+    public static Drawable getDrawalbe(int nothing) {
+        return getContext().getResources().getDrawable(nothing);
     }
 }

@@ -1,2 +1,2 @@
-include ':CameraListener'
+include ':CameraListener', 'Demo'
 include 'app', 'GooglePlay'

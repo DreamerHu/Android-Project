@@ -28,7 +28,7 @@ public abstract class LoadPage extends FrameLayout {
     private static int STATE_SUCCESS=3;
     private static int STATE_UNKNOW=4;
 
-    private static int loadState=STATE_LOAD;
+    private  int loadState=STATE_LOAD;
 
     private Button reStartLoad;
 
@@ -100,8 +100,13 @@ public abstract class LoadPage extends FrameLayout {
         if(loadState==STATE_SUCCESS){
             if(successPage==null){
                 successPage=createSuccess();
+                this.addView(successPage,LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
             }
             successPage.setVisibility(View.VISIBLE);
+        }else {
+            if(successPage!=null) {
+                successPage.setVisibility(View.INVISIBLE);
+            }
         }
     }
 

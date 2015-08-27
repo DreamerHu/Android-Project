@@ -23,12 +23,22 @@ public class ThreadManager {
         }
         return instance;
     }
+
+    /**
+     * 创建一个最大线程数为三个线程的线程池
+     * @return 返回一个线程池
+     */
     public ThreadPoolProxy createShortPool(){
         if(shortPool==null){
             shortPool=new ThreadPoolProxy(3,3,2000L);
         }
         return shortPool;
     }
+
+    /**
+     * 创建一个最大线程数为5个线程的线程池
+     * @return 返回一个线程池
+     */
     public ThreadPoolProxy createLongPool(){
         if(longPool==null){
             longPool=new ThreadPoolProxy(5,5,2000L);
@@ -47,6 +57,11 @@ public class ThreadManager {
             this.maximumPoolSize=maximumPoolSize;
             this.time=time;
         }
+
+        /**
+         * 执行任务
+         * @param runnable
+         */
         public void execute(Runnable runnable){
 
             if(poolExecutor==null){
@@ -56,13 +71,15 @@ public class ThreadManager {
 
         }
 
+        /**
+         * 取消指定任务
+         * @param runnable
+         */
         public void cancle(Runnable runnable){
             if(poolExecutor!=null&&!poolExecutor.isShutdown()&&!poolExecutor.isTerminated()){
                 poolExecutor.remove(runnable);
             }
         }
-
-
     }
 
 
